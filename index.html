@@ -7,23 +7,48 @@
   <style>
     body {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
       background: #f9f0ff;
       font-family: 'Arial', sans-serif;
       text-align: center;
+      position: relative;
     }
     .container {
       position: relative;
       width: 300px;
+      height: 400px;
     }
-    .image-box {
-      margin: 10px 0;
+    /* Image for Snigdha */
+    .top-right {
+      position: absolute;
+      top: -20px;
+      right: -40px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ff8c94;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    /* Image for Astitva */
+    .bottom-left {
+      position: absolute;
+      bottom: -20px;
+      left: -40px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #8c94ff;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     }
     .ring-box {
-      position: relative;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       background: #ffffff;
       border: 2px solid #e0e0e0;
       width: 100px;
@@ -32,26 +57,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 15px auto;
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     }
     .ring-box img {
       width: 50px;
     }
-    .upload-label {
-      background-color: #ff8c94;
-      color: white;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      display: inline-block;
-      margin: 5px;
-    }
-    input[type="file"] {
-      display: none;
-    }
     audio {
       margin-top: 20px;
+      display: block;
     }
   </style>
 </head>
@@ -60,45 +73,17 @@
 <h1>🌹 Happy Propose Day, Snigdha! 🌹</h1>
 
 <div class="container">
-  <label class="upload-label">
-    Upload Snigdha's Picture
-    <input type="file" id="topImageInput" accept="image/*" onchange="previewImage('topImage', this)">
-  </label>
-  <div class="image-box">
-    <img id="topImage" src="" alt="Snigdha's Picture" style="width: 100%; display: none;">
-  </div>
-
+  <img src="snigdha.jpg" alt="Snigdha's Picture" class="top-right">
   <div class="ring-box">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Gold_ring_icon.png/768px-Gold_ring_icon.png" alt="Ring">
   </div>
-
-  <label class="upload-label">
-    Upload Your Picture
-    <input type="file" id="bottomImageInput" accept="image/*" onchange="previewImage('bottomImage', this)">
-  </label>
-  <div class="image-box">
-    <img id="bottomImage" src="" alt="Your Picture" style="width: 100%; display: none;">
-  </div>
+  <img src="astitva.jpg" alt="Astitva's Picture" class="bottom-left">
 </div>
 
 <audio controls autoplay loop>
   <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
-
-<script>
-  function previewImage(imageId, input) {
-    const file = input.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        document.getElementById(imageId).src = e.target.result;
-        document.getElementById(imageId).style.display = 'block';
-      };
-      reader.readAsDataURL(file);
-    }
-  }
-</script>
 
 </body>
 </html>
