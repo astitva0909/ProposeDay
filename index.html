@@ -14,6 +14,7 @@
       background: #f9f0ff;
       font-family: 'Arial', sans-serif;
       text-align: center;
+      overflow: hidden;
     }
     .container {
       position: relative;
@@ -73,6 +74,7 @@
       border: none;
       border-radius: 5px;
       transition: all 0.3s;
+      margin: 10px;
     }
     #accept-btn {
       background-color: #4CAF50;
@@ -97,16 +99,15 @@
   <script>
     // Handle the Decline button movement
     function moveDeclineButton(button) {
-      const container = button.parentElement;
-      const containerRect = container.getBoundingClientRect();
-      const buttonRect = button.getBoundingClientRect();
-
-      let newTop = Math.random() * (containerRect.height - buttonRect.height);
-      let newLeft = Math.random() * (containerRect.width - buttonRect.width);
+      const maxX = window.innerWidth - button.offsetWidth;
+      const maxY = window.innerHeight - button.offsetHeight;
+      
+      const newX = Math.random() * maxX;
+      const newY = Math.random() * maxY;
 
       button.style.position = "absolute";
-      button.style.top = ${newTop}px;
-      button.style.left = ${newLeft}px;
+      button.style.left = ${newX}px;
+      button.style.top = ${newY}px;
     }
 
     // Handle Accept button click
