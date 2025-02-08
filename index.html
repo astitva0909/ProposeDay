@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Propose Day</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f9f0ff;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+    }
+    .container {
+      position: relative;
+      width: 300px;
+    }
+    .image-box {
+      margin: 10px 0;
+    }
+    .ring-box {
+      position: relative;
+      background: #ffffff;
+      border: 2px solid #e0e0e0;
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 15px auto;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+    .ring-box img {
+      width: 50px;
+    }
+    .upload-label {
+      background-color: #ff8c94;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-block;
+      margin: 5px;
+    }
+    input[type="file"] {
+      display: none;
+    }
+    audio {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🌹 Happy Propose Day, Snigdha! 🌹</h1>
+
+<div class="container">
+  <label class="upload-label">
+    Upload Snigdha's Picture
+    <input type="file" id="topImageInput" accept="image/*" onchange="previewImage('topImage', this)">
+  </label>
+  <div class="image-box">
+    <img id="topImage" src="" alt="Snigdha's Picture" style="width: 100%; display: none;">
+  </div>
+
+  <div class="ring-box">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Gold_ring_icon.png/768px-Gold_ring_icon.png" alt="Ring">
+  </div>
+
+  <label class="upload-label">
+    Upload Your Picture
+    <input type="file" id="bottomImageInput" accept="image/*" onchange="previewImage('bottomImage', this)">
+  </label>
+  <div class="image-box">
+    <img id="bottomImage" src="" alt="Your Picture" style="width: 100%; display: none;">
+  </div>
+</div>
+
+<audio controls autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  function previewImage(imageId, input) {
+    const file = input.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById(imageId).src = e.target.result;
+        document.getElementById(imageId).style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+</script>
+
+</body>
+</html>
